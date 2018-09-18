@@ -20,7 +20,21 @@ class Router{
       $uri = $this->getUri();
       foreach($this->routes as $uriPattern => $path){
           if(preg_match("~$uriPattern~", $uri)){
-              echo 'index';
+              $internalRoutes = preg_replace("~$uriPattern~", $path, $uri);
+              $segments = explode("/", $internalRoutes);
+              $controllerName = ucfirst(array_shift($segments)) . "Controller";
+              $actionName = "action" . ucfirst(array_shift($segments));
+              $parametres = $segments;
+              if(file_exists("./Controllers/" . $controllerName . ".php")){
+                  require_once("./Controllers/" . $controllerName . ".php");
+              }
+              $controllerObject = new $controllerName;
+
+              $result = call_user_func_array(array($controllerObject, $actionName), $parametres);
+
+              if ($result == null) {
+                  break;
+              }
           }
       }
   }
