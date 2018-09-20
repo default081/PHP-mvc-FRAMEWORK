@@ -7,7 +7,7 @@ class IndexController{
     }   
     
     function actionIndex(){
-        echo "action INDEX";
+
     }
 
 }
