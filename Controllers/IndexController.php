@@ -7,7 +7,9 @@ class IndexController{
     }   
     
     function actionIndex(){
-
+    	global $smarty;
+    	loadTemplate($smarty, "index");
+    	echo "index";
     }
 
 }

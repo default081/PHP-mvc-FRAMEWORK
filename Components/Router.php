@@ -5,7 +5,7 @@ class Router{
   private $routes;
 
   function __construct(){
-      $this->routes = require_once("./Configs/routes.php");
+      $this->routes = require_once("./Components/routes.php");
   }
 
 
