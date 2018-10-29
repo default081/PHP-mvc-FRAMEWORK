@@ -14,5 +14,5 @@
 	// $smarty->setForceCompile(true);
 
 	$smarty->assign('teplateWebPath', TemplateWebPath);
-	 echo $smarty->testInstall();
+	 // echo $smarty->testInstall();
  ?>
